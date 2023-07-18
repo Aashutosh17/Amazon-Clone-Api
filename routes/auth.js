@@ -7,7 +7,6 @@ const auth = require("../middlewares/auth");
 
 // SIGN UP
 authRouter.post("/api/signup", async (req, res) => {
-  console.log(req);
   try {
     const { name, email, password } = req.body;
 

@@ -1,10 +1,7 @@
-//Importing form Packages
 const express = require("express");
 const mongoose = require("mongoose");
-
-//Importing From other Files
-const authRouter = require("./routes/auth");
 const adminRouter = require("./routes/admin");
+const authRouter = require("./routes/auth");
 const productRouter = require("./routes/product");
 const userRouter = require("./routes/user");
 

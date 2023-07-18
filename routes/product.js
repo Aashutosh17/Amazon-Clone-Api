@@ -3,7 +3,7 @@ const productRouter = express.Router();
 const auth = require("../middlewares/auth");
 const { Product } = require("../models/product");
 
-productRouter.get("/api/products", auth, async (req, res) => {
+productRouter.get("/api/products/", auth, async (req, res) => {
   try {
     const products = await Product.find({ category: req.query.category });
     res.json(products);
@@ -11,7 +11,8 @@ productRouter.get("/api/products", auth, async (req, res) => {
     res.status(500).json({ error: e.message });
   }
 });
-// creating get request to search products and get them
+
+// create a get request to search products and get them
 // /api/products/search/i
 productRouter.get("/api/products/search/:name", auth, async (req, res) => {
   try {
@@ -24,7 +25,8 @@ productRouter.get("/api/products/search/:name", auth, async (req, res) => {
     res.status(500).json({ error: e.message });
   }
 });
-// creating a post request route to rate the product.
+
+// create a post request route to rate the product.
 productRouter.post("/api/rate-product", auth, async (req, res) => {
   try {
     const { id, rating } = req.body;
@@ -49,6 +51,7 @@ productRouter.post("/api/rate-product", auth, async (req, res) => {
     res.status(500).json({ error: e.message });
   }
 });
+
 productRouter.get("/api/deal-of-day", auth, async (req, res) => {
   try {
     let products = await Product.find({});
